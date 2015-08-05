@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CfApp</title>
+  <title>CF Box Reviews</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <ul>
+    <li><%= link_to "About CFBR", about_path %></li>
+    <li><%= link_to "Contact Us", contact_path %></li>
+  </ul>
 
 <%= yield %>
 
