@@ -8,17 +8,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="notice">
-    <%= render :partial => 'layouts/flash' , :locals => { :flash => flash } %>
-  </div>
   
-  <div class="container">
     <ul class="nav nav-tabs">
       <li><%= link_to "About CFBR", about_path %></li>
       <li><%= link_to "Contact Us", contact_path %></li>
+      <li><%= link_to "Register", new_user_registration_path %></li>
+      <li><%= link_to "Log In", new_user_session_path %></li>
     </ul>
 
+    <div id="notice">
+      <%= render :partial => 'layouts/flash' , :locals => { :flash => flash } %>
+    </div>
+
     <%= yield %>
-  </div>
+
 </body>
 </html>

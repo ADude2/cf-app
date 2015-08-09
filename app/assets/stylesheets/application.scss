@@ -15,3 +15,22 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+/* General styling */
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+/* Devise views styling */
+
+.log-in{
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  border: none;
+}
