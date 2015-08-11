@@ -28,6 +28,6 @@ feature "User visits the homepage" do
   scenario "User can see the Log In link" do
     visit root_path
 
-    expect(page).to have_selector(:link_or_button, "Log In")
+    expect(page).to have_selector(:link_or_button, "Login")
   end
 end

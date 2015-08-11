@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
 gem 'simple_form'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'sqlite3'
