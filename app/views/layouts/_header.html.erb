@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default">
-  <div class="navbar-container">
+<nav class="navbar navbar-fixed-top navbar-default">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button class="navbar-toggle collapsed" data-target="#bs-navbar-collapse-1" data-toggle="collapse" type="button">
         <span class="sr-only">Toggle Navigation</span>
@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
-            <%= link_to (current_user.user_name || current_user.email), "#" %>
+            <%= link_to (current_user.user_name), "#" %>
           </li>
           <li><%= link_to edit_user_registration_path do %>
             <span class="glyphicon glyphicon-user"></span>

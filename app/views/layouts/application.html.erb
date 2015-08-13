@@ -11,16 +11,13 @@
 
     <%= render :partial => 'layouts/header' %>
 
-    <ul class="nav nav-tabs">
-      <li><%= link_to "About CFBR", about_path %></li>
-      <li><%= link_to "Contact Us", contact_path %></li>
-    </ul>
-
     <div id="notice">
       <%= render :partial => 'layouts/flash' , :locals => { :flash => flash } %>
     </div>
 
-    <%= yield %>
-
+    <div class="container">
+      <%= yield %>
+      <%= render :partial => 'layouts/footer' %>
+    </div>
 </body>
 </html>
