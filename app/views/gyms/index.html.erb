@@ -1,0 +1,15 @@
+<h1>CF Boxes</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <% @gyms.each do |gym| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to gym.name, gym %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
