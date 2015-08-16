@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813233925) do
+ActiveRecord::Schema.define(version: 20150814001008) do
+
+  create_table "gym_listings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "website"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.float    "lat"
+    t.float    "long"
+    t.integer  "unique_id"
+    t.text     "raw_json"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gyms", force: :cascade do |t|
     t.string   "name"

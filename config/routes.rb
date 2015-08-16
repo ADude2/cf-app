@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   resources :gyms, only: [:index, :show]
 
+  resources :listrefreshes, only: [:index, :create]
+
 end

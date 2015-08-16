@@ -13,6 +13,7 @@ gem 'devise'
 gem 'figaro'
 gem 'simple_form'
 gem 'factory_girl_rails'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'sqlite3'
