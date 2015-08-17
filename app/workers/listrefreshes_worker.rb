@@ -29,7 +29,6 @@ class ListrefreshesWorker
 
   def perform(get_list)
     get_gym_index
-    $redis_cache = Redis.new
-    $redis_cache.setex("gymlist", 604800, get_gym_index)
+    $redis_cache.setex("gymlist", 1.week.seconds, get_gym_index)
   end
 end
