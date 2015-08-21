@@ -23,7 +23,7 @@ class ListrefreshesWorker
     master_list_hash = build_master_list_hash
     $redis_cache.pipelined do
       master_list_hash.each do |gym_id, gym_data|
-        $redis_cache.hset("master_list_hash", gym_id, (gym_data).to_json)
+        $redis_cache.hset("master_list_hash", gym_id, gym_data)
       end
     end
     $redis_cache.set("list", master_list_hash.keys)
