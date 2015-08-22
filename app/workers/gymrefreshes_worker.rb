@@ -24,7 +24,7 @@ class GymrefreshesWorker
   def perform(gym_id)
     master_list = JSON.parse($redis_cache.hget("master_list_hash", gym_id))
     affiliate_info = get_affiliate_details(gym_id)
-    puts build_gym_index_hash(master_list, affiliate_info)
+    attributes = build_gym_index_hash(master_list, affiliate_info)
   end
 end
 
