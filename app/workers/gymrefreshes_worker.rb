@@ -9,8 +9,8 @@ class GymrefreshesWorker
   def build_gym_index_hash(index_array, affiliate_info)
     {
       unique_id: index_array[3],
-      latitude: index_array[0],
-      longitude: index_array[1],
+      lat: index_array[0],
+      long: index_array[1],
       name: affiliate_info.fetch(:name),
       website: affiliate_info.fetch(:website),
       address: affiliate_info.fetch(:address),
@@ -25,6 +25,7 @@ class GymrefreshesWorker
     master_list = JSON.parse($redis_cache.hget("master_list_hash", gym_id))
     affiliate_info = get_affiliate_details(gym_id)
     attributes = build_gym_index_hash(master_list, affiliate_info)
+    # Gym.where(unique_id: attributes[:unique_id]).update_or_create(attributes)
   end
 end
 
