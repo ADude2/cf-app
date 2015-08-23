@@ -1,5 +1,6 @@
 class GymrefreshesWorker
   include Sidekiq::Worker
+  sidekiq_options :retry => false
   require 'open-uri'
 
   def get_affiliate_details(gym_id)
@@ -25,7 +26,7 @@ class GymrefreshesWorker
     master_list = JSON.parse($redis_cache.hget("master_list_hash", gym_id))
     affiliate_info = get_affiliate_details(gym_id)
     attributes = build_gym_index_hash(master_list, affiliate_info)
-    # Gym.where(unique_id: attributes[:unique_id]).update_or_create(attributes)
+    Gym.where(unique_id: attributes[:unique_id]).update_or_create!(attributes)
   end
 end
 

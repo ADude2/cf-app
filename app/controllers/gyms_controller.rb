@@ -4,6 +4,6 @@ class GymsController < ApplicationController
   end
 
   def show
-    @gym = Gym.find([params[:id]])
+    @gym = Gym.find(params[:id])
   end
 end
