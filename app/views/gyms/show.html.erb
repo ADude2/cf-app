@@ -1,1 +1,35 @@
-<h1><%= @gym.name %></h1>
+<div class="gym-title">
+  <h1><%= @gym.name %></h1>
+</div>
+
+<div class="col-md-4">
+  <div id="map-canvas" style="width: 230px; height: 230px;"></div>
+</div>
+
+<div class="col-md-4 pull-right">
+  <ul>
+    <li>Website: <%= link_to @gym.website, @gym.website %></li>
+    <li>Address: <%= @gym.address %></li>
+    <li>City: <%= @gym.city %></li>
+    <li>State: <%= @gym.state %></li>
+    <li>Zip: <%= @gym.zip %></li>
+    <li>Country: <%= @gym.country %></li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  function initialize() {
+    var mycenter = { lat: <%= @gym.lat %>, lng: <%= @gym.long %>}
+    var mapOptions = {
+      center: mycenter,
+      zoom: 15
+    };
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+    var marker = new google.maps.Marker({
+      position: mycenter,
+      map: map
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>

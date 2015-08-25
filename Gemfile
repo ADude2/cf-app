@@ -14,6 +14,7 @@ gem 'figaro'
 gem 'simple_form'
 gem 'factory_girl_rails'
 gem 'sidekiq'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'sqlite3'
