@@ -10,7 +10,7 @@ feature "User visits the homepage" do
   scenario "User can see the About page link" do
     visit root_path
 
-    expect(page).to have_selector(:link_or_button, "About CFBR")
+    expect(page).to have_selector(:link_or_button, "About CrossRater")
   end
 
   scenario "User can see the Contact Us link" do
