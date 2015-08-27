@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814001008) do
+ActiveRecord::Schema.define(version: 20150827210646) do
 
   create_table "gym_listings", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20150814001008) do
   add_index "gyms", ["name"], name: "index_gyms_on_name"
   add_index "gyms", ["state"], name: "index_gyms_on_state"
   add_index "gyms", ["unique_id"], name: "index_gyms_on_unique_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "gym_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["gym_id"], name: "index_reviews_on_gym_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name"

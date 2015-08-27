@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'
 
-  resources :gyms, only: [:index, :show]
+  resources :gyms, only: [:index, :show] do
+    resources :reviews
+  end
 
   resources :listrefreshes, only: [:index, :create]
   resources :gymrefreshes, only: [:index, :create]
