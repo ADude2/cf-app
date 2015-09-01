@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   validates :user_name, presence: true, length: { minimum: 4, maximum: 16 }
   has_many :reviews, dependent: :destroy
+  ratyrate_rater
 end

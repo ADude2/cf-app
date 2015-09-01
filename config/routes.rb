@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   root 'welcome#index'
   get 'about' => 'welcome#about'

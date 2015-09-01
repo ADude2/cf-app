@@ -1,21 +1,40 @@
 <div class="gym-title">
   <h1><%= @gym.name %></h1>
 </div>
+<hr>
+<div class="container">
+  <div class="row gym-title">
+    <div class="col-md-4">
+      <div id="map-canvas" style="width: 230px; height: 230px;"></div>
+    </div>
 
-<div class="col-md-4">
-  <div id="map-canvas" style="width: 230px; height: 230px;"></div>
+    <div class="col-md-4">
+      <ul>
+        <li>Website: <%= link_to @gym.website, @gym.website %></li>
+        <li>Address: <%= @gym.address %></li>
+        <li>City: <%= @gym.city %></li>
+        <li>State: <%= @gym.state %></li>
+        <li>Zip: <%= @gym.zip %></li>
+        <li>Country: <%= @gym.country %></li>
+      </ul>
+      Overall Rating: <strong><%= @gym.calculate_overall_average %></strong> based on <strong><%= @gym.reviews.count %></strong> reviews.
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row gym-title">
+    <%= link_to "Add a review", new_gym_review_path(@gym), class: "btn btn-info" %> 
+  </div>
+</div>
+<hr>
+<h1 class="gym-title">Reviews</h1>
+<div class="container">
+  <div class="row">
+    <%= render partial: 'reviews/review', collection: @reviews %>
+  </div>
 </div>
 
-<div class="col-md-4 pull-right">
-  <ul>
-    <li>Website: <%= link_to @gym.website, @gym.website %></li>
-    <li>Address: <%= @gym.address %></li>
-    <li>City: <%= @gym.city %></li>
-    <li>State: <%= @gym.state %></li>
-    <li>Zip: <%= @gym.zip %></li>
-    <li>Country: <%= @gym.country %></li>
-  </ul>
-</div>
 
 <script type="text/javascript">
   function initialize() {

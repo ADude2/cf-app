@@ -1,0 +1,9 @@
+<h1>Your Review of <%= @gym.name %></h1>
+<hr>
+<div class="container">
+  <div class="row">  
+
+      <%= render partial: 'form', locals: { gym: @gym, review: @review } %>
+
+  </div>
+</div>
