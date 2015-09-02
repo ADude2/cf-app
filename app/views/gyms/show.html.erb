@@ -37,6 +37,12 @@
 
 
 <script type="text/javascript">
+  $(document).ready(function(){
+    $(".readonly-star .star").each(function() {
+      $(this).raty('set', { readOnly: true });
+    });
+  });
+
   function initialize() {
     var mycenter = { lat: <%= @gym.lat %>, lng: <%= @gym.long %> }
     var mapOptions = {

@@ -2,7 +2,7 @@
   <p>
     <% if review.user %>
       <small>
-        <%= review.user.user_name %> on <%= review.updated_at %>
+        <%= review.user.user_name %> on <%= review.updated_at.strftime("%b %d, %Y") %>
           | <%= link_to "Delete", [review.gym, review], method: :delete %>
       </small>
     <% end %>
@@ -11,7 +11,7 @@
       <div class="col-md-8">
         <%= review.content %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 readonly-star">
         Coaching: <%= rating_for @gym, "coaching", :disable_after_rate => true, :half_show => true %>
         Equipment: <%= rating_for @gym, "equipment", :disable_after_rate => true, :half_show => true %>
         Pricing: <%= rating_for @gym, "pricing", :disable_after_rate => true, :half_show => true %>
@@ -19,4 +19,5 @@
       </div>
     </div>
   </p>
+  <hr>
 <% end %>
