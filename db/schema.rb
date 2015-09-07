@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901000737) do
-
-  create_table "average_caches", force: :cascade do |t|
-    t.integer  "rater_id"
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.float    "avg",           null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20150901000734) do
 
   create_table "gym_listings", force: :cascade do |t|
     t.string   "name"
@@ -57,27 +48,6 @@ ActiveRecord::Schema.define(version: 20150901000737) do
   add_index "gyms", ["name"], name: "index_gyms_on_name"
   add_index "gyms", ["state"], name: "index_gyms_on_state"
   add_index "gyms", ["unique_id"], name: "index_gyms_on_unique_id"
-
-  create_table "overall_averages", force: :cascade do |t|
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.float    "overall_avg",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "rates", force: :cascade do |t|
-    t.integer  "rater_id"
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.float    "stars",         null: false
-    t.string   "dimension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rates", ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type"
-  add_index "rates", ["rater_id"], name: "index_rates_on_rater_id"
 
   create_table "rating_caches", force: :cascade do |t|
     t.integer  "cacheable_id"

@@ -15,7 +15,6 @@ gem 'simple_form'
 gem 'factory_girl_rails'
 gem 'sidekiq'
 gem 'jquery-turbolinks'
-gem 'ratyrate'
 
 group :development, :test do
   gem 'sqlite3'

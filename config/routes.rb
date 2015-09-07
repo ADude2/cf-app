@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   root 'welcome#index'
   get 'about' => 'welcome#about'
@@ -12,5 +11,4 @@ Rails.application.routes.draw do
 
   resources :listrefreshes, only: [:index, :create]
   resources :gymrefreshes, only: [:index, :create]
-
 end
