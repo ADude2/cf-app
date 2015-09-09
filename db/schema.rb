@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901000734) do
+ActiveRecord::Schema.define(version: 20150908221633) do
 
   create_table "gym_listings", force: :cascade do |t|
     t.string   "name"
@@ -65,8 +65,13 @@ ActiveRecord::Schema.define(version: 20150901000734) do
     t.integer  "user_id"
     t.integer  "gym_id"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.float    "score",      default: 0.0
+    t.float    "coaching",   default: 0.0
+    t.float    "equipment",  default: 0.0
+    t.float    "pricing",    default: 0.0
+    t.float    "location",   default: 0.0
   end
 
   add_index "reviews", ["gym_id"], name: "index_reviews_on_gym_id"

@@ -5,4 +5,10 @@ class Gym < ActiveRecord::Base
   validates :long, presence: true
 
   has_many :reviews, dependent: :destroy
+
+  def average_rating
+    (self.reviews.sum(:score) / reviews.size).round(2)
+  rescue ZeroDivisionError
+    0
+  end
 end

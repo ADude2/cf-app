@@ -5,8 +5,109 @@
       <%= f.input :content, required: true, autofocus: true, label: false, placeholder: "Share your thoughts with us!", input_html: { class: 'input-md' } %>
       <%= f.button :submit, "Submit Review", class: "btn-md btn-info" %>
     </div>
-    <div class="col-md-4">
-
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <label>Coaching</label>
+      <div id="coaching" class="stars"></div>
+      <%= f.hidden_field :coaching, required: true %>
+    </div>
+    <div class="col-md-3">
+      <label>Equipment</label>
+      <div id="equipment" class="stars"></div>
+      <%= f.hidden_field :equipment, required: true %>
+    </div>
+    <div class="col-md-3">
+      <label>Pricing</label>
+      <div id="pricing" class="stars"></div>
+      <%= f.hidden_field :pricing, required: true %>
+    </div>
+    <div class="col-md-3">
+      <label >Location</label>
+      <div id="location" class="stars"></div>
+      <%= f.hidden_field :location, required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label>Overall Score</label>
+      <div id="overall"></div>
+      <%= f.hidden_field :score, required: true %>
     </div>
   </div>
 <% end %>
+
+<script>
+  $("#coaching").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      half : true,
+      target     : '#review_coaching',
+      targetType : 'score',
+      targetKeep : true
+  });
+
+  $('#equipment').raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      half : true,
+      target     : '#review_equipment',
+      targetType : 'score',
+      targetKeep : true
+  });
+
+  $('#pricing').raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      half : true,
+      target     : '#review_pricing',
+      targetType : 'score',
+      targetKeep : true
+  });
+
+  $('#location').raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      half : true,
+      target     : '#review_location',
+      targetType : 'score',
+      targetKeep : true
+  });
+
+  $('#overall').raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      half : true,
+      target     : '#review_score',
+      targetType : 'score',
+      targetKeep : true,
+      readOnly : true
+  });
+
+  $(document).on("click", ".stars", function(){
+  var score = 0 ;
+
+  //loop through stars to get score
+  $('.stars').each(function(i, obj) {
+    //if score is there will be undefined if star not selected
+    if ($(obj).raty('score')) 
+      score +=  $(obj).raty('score'); 
+  });
+  //calculating average
+  score = score / $(".stars").length;
+  $('#overall').raty({
+    score:  score, 
+    starOn: "<%= image_path('star-on.png') %>",
+    starHalf: "<%= image_path('star-half.png') %>",
+    starOff: "<%= image_path('star-off.png') %>",
+    half: true,
+    readOnly : true
+  });
+  $("#review_score").val(score.toFixed(2));
+  });
+</script>

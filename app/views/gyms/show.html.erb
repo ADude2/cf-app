@@ -17,7 +17,7 @@
         <li>Zip: <%= @gym.zip %></li>
         <li>Country: <%= @gym.country %></li>
       </ul>
-      Overall Rating: <strong><%= @gym.calculate_overall_average %></strong> based on <strong><%= @gym.reviews.count %></strong> reviews.
+      Overall Rating: <strong><%= @gym.average_rating %></strong> based on <strong><%= @gym.reviews.count %></strong> reviews.
     </div>
   </div>
 </div>
@@ -51,4 +51,47 @@
     });
   }
   google.maps.event.addDomListener(window, 'load', initialize);
+
+  <% @reviews.each do |review| %>
+    $(".coaching_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.coaching %>,
+      readOnly: true
+    });
+
+    $(".equipment_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.equipment %>,
+      readOnly: true
+    });
+
+    $(".pricing_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.pricing %>,
+      readOnly: true
+    });    
+
+    $(".location_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.location %>,
+      readOnly: true
+    });
+
+    $(".score_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.score %>,
+      readOnly: true
+    });
+  <% end %>
+
 </script>
