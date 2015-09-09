@@ -3,12 +3,15 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
     @reviews = @gym.reviews
     @review = current_user.reviews.build(review_params)
     @review.gym = @gym
+
+    authorize @review
 
     if @review.save
       flash[:notice] = "Review succesfully added!"
@@ -21,10 +24,13 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    authorize @review
   end
 
   def update
     @review = Review.find(params[:id])
+
+    authorize @review
 
     if @review.update_attributes(review_params)
       flash[:notice] = "Your review was succesfully updated."
@@ -37,6 +43,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
+
+    authorize @review
 
     if @review.destroy
       flash[:notice] = "Your review was succesfully removed."
