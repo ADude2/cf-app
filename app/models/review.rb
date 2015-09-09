@@ -10,4 +10,6 @@ class Review < ActiveRecord::Base
   validates :pricing, presence: true
   validates :location, presence: true
   validates :score, presence: true
+
+  default_scope { order('created_at DESC') }
 end
