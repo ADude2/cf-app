@@ -5,6 +5,6 @@ class GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
-    @reviews = @gym.reviews
+    @reviews = @gym.reviews.includes(:user)
   end
 end
