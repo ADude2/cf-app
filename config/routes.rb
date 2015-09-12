@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'contact' => 'welcome#contact'
 
   resources :gyms, only: [:index, :show] do
-    resources :reviews
+    resources :reviews, except: [:index, :show]
   end
 
   resources :listrefreshes, only: [:index, :create]
