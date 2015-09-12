@@ -9,5 +9,4 @@ FactoryGirl.define do
     location 4.0
     score 4.0
   end
-
 end
