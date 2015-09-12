@@ -58,7 +58,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_gym
-    @gym = Gym.find(params[:gym_id])
+    @gym = Gym.friendly.find(params[:gym_id])
   end
 
   def review_params

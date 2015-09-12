@@ -16,6 +16,7 @@ gem 'factory_girl_rails'
 gem 'sidekiq'
 gem 'jquery-turbolinks'
 gem 'pundit'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'sqlite3'

@@ -4,7 +4,10 @@ class GymsController < ApplicationController
   end
 
   def show
-    @gym = Gym.find(params[:id])
+    @gym = Gym.friendly.find(params[:id])
+    if request.path != gym_path(@gym)
+      redirect_to @gym, status: :moved_permanently
+    end
     @reviews = @gym.reviews.includes(:user)
   end
 end
