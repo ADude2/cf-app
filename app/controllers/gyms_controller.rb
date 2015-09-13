@@ -8,6 +8,6 @@ class GymsController < ApplicationController
     if request.path != gym_path(@gym)
       redirect_to @gym, status: :moved_permanently
     end
-    @reviews = @gym.reviews.includes(:user)
+    @reviews = @gym.reviews.includes(:user).paginate(page: params[:page], per_page: 10)
   end
 end

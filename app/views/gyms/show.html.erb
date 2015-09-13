@@ -29,6 +29,9 @@
 </div>
 <hr>
 <h1 class="gym-title">Reviews</h1>
+<div class="gym-title">
+  <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
+</div>
 <div class="container">
   <div class="row">
     <%= render partial: 'reviews/review', collection: @reviews %>

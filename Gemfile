@@ -17,6 +17,7 @@ gem 'sidekiq'
 gem 'jquery-turbolinks'
 gem 'pundit'
 gem 'friendly_id'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'sqlite3'
