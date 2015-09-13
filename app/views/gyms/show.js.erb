@@ -1,0 +1,3 @@
+$('.reviews').html("<%= escape_javascript(render partial: 'reviews/review', collection: @reviews) %> ");
+$('.paginator').html("<%= escape_javascript(will_paginate @reviews, renderer: BootstrapPagination::Rails) %>");
+$('.pagination a').attr('data-remote', 'true');

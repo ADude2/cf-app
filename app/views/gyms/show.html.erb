@@ -29,16 +29,25 @@
 </div>
 <hr>
 <h1 class="gym-title">Reviews</h1>
-<div class="gym-title">
+<div class="paginator gym-title">
   <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
 </div>
 <div class="container">
   <div class="row">
-    <%= render partial: 'reviews/review', collection: @reviews %>
+    <div class="reviews">
+      <%= render partial: 'reviews/review', collection: @reviews %>
+    </div>
   </div>
+</div>
+<div class="paginator gym-title">
+  <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
 </div>
 
 <script type="text/javascript">
+  $(function(){
+    $('.pagination a').attr('data-remote', 'true')
+  });
+
   function initialize() {
     var mycenter = { lat: <%= @gym.lat %>, lng: <%= @gym.long %> }
     var mapOptions = {

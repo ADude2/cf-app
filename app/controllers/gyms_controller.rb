@@ -9,5 +9,9 @@ class GymsController < ApplicationController
       redirect_to @gym, status: :moved_permanently
     end
     @reviews = @gym.reviews.includes(:user).paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js
+    end
   end
 end
