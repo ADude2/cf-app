@@ -13,4 +13,12 @@ class Gym < ActiveRecord::Base
   rescue ZeroDivisionError
     0
   end
+
+  def self.search(search)
+    if search
+      where(['name LIKE ? OR city LIKE ? OR state LIKE? OR country LIKE ?', "#{search}", "#{search}", "#{search}", "#{search}"])
+    else
+      all
+    end
+  end
 end

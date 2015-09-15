@@ -1,6 +1,7 @@
 class GymsController < ApplicationController
   def index
-    @gyms = Gym.all
+    @gyms = Gym.search(params[:search])
+
   end
 
   def show
