@@ -1,15 +1,39 @@
 <h1>CF Boxes</h1>
 
-<div class="row">
-  <div class="col-md-8">
+<table data-toggle="table" data-sort-name="name" data-sort-order="asc">
+  <thead>
+    <tr>
+      <th data-field="name" data-sortable="true">Name</th>
+      <th data-field="city" data-sortable="true">City</th>
+      <th data-field="state" data-sortable="true">State</th>
+      <th data-field="country" data-sortable="true">Country</th>
+      <th data-field="average" data-sortable="true">Average</th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @gyms.each do |gym| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to gym.name, gym, 'data-no-turbolink' => true %>
-          </h4>
-        </div>
-      </div>
+      <tr>
+        <td><%= link_to gym.name, gym, 'data-no-turbolink' => true %></td>
+        <td><%= gym.city %></td>
+        <td><%= gym.state %></td>
+        <td><%= gym.country %></td>
+        <td><div class="average_<%= gym.id %>"></div></td>
+      </tr>
     <% end %>
-  </div>
-</div>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+
+  <% @gyms.each do |gym| %>
+    $(".average_<%= gym.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= gym.average_rating %>,
+      readOnly: true
+    });
+  <% end %>
+  
+</script>
