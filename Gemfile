@@ -18,9 +18,10 @@ gem 'jquery-turbolinks'
 gem 'pundit'
 gem 'friendly_id'
 gem 'will_paginate-bootstrap'
+gem 'pg'
+gem 'pg_search'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -30,7 +31,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
   gem 'puma'
 end

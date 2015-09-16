@@ -1,5 +1,6 @@
 class Gym < ActiveRecord::Base
   extend FriendlyId
+  include PgSearch
   validates :unique_id, presence: true, uniqueness: true
   validates :name, presence: true
   validates :lat, presence: true
@@ -14,11 +15,9 @@ class Gym < ActiveRecord::Base
     0
   end
 
-  def self.search(search)
-    if search
-      where(['name LIKE ? OR city LIKE ? OR state LIKE? OR country LIKE ?', "#{search}", "#{search}", "#{search}", "#{search}"])
-    else
-      all
-    end
-  end
+  pg_search_scope :search_any_word,
+                :against => [:name, :city, :state, :country],
+                :using => {
+                  :tsearch => {:any_word => true}
+                }
 end

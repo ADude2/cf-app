@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150912194500) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -21,10 +24,10 @@ ActiveRecord::Schema.define(version: 20150912194500) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "gym_listings", force: :cascade do |t|
     t.string   "name"
@@ -58,23 +61,11 @@ ActiveRecord::Schema.define(version: 20150912194500) do
     t.string   "slug"
   end
 
-  add_index "gyms", ["city"], name: "index_gyms_on_city"
-  add_index "gyms", ["name"], name: "index_gyms_on_name"
-  add_index "gyms", ["slug"], name: "index_gyms_on_slug"
-  add_index "gyms", ["state"], name: "index_gyms_on_state"
-  add_index "gyms", ["unique_id"], name: "index_gyms_on_unique_id"
-
-  create_table "rating_caches", force: :cascade do |t|
-    t.integer  "cacheable_id"
-    t.string   "cacheable_type"
-    t.float    "avg",            null: false
-    t.integer  "qty",            null: false
-    t.string   "dimension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
+  add_index "gyms", ["city"], name: "index_gyms_on_city", using: :btree
+  add_index "gyms", ["name"], name: "index_gyms_on_name", using: :btree
+  add_index "gyms", ["slug"], name: "index_gyms_on_slug", using: :btree
+  add_index "gyms", ["state"], name: "index_gyms_on_state", using: :btree
+  add_index "gyms", ["unique_id"], name: "index_gyms_on_unique_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
@@ -89,8 +80,8 @@ ActiveRecord::Schema.define(version: 20150912194500) do
     t.float    "location",   default: 0.0
   end
 
-  add_index "reviews", ["gym_id"], name: "index_reviews_on_gym_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["gym_id"], name: "index_reviews_on_gym_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
@@ -113,8 +104,10 @@ ActiveRecord::Schema.define(version: 20150912194500) do
     t.string   "role"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["user_name"], name: "index_users_on_user_name", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["user_name"], name: "index_users_on_user_name", unique: true, using: :btree
 
+  add_foreign_key "reviews", "gyms"
+  add_foreign_key "reviews", "users"
 end

@@ -1,7 +1,10 @@
 class GymsController < ApplicationController
   def index
-    @gyms = Gym.search(params[:search])
-
+    if params[:search].present?
+      @gyms = Gym.search_any_word(params[:search])
+    else
+      @gyms = Gym.all
+    end
   end
 
   def show
