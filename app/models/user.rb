@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
 
   friendly_id :user_name, use: :slugged
 
-  def should_generate_new_friendly_id?
-    new_record?
-  end
-
   def admin?
     role == "admin"
   end
