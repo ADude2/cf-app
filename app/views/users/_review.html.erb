@@ -1,7 +1,7 @@
 <%= content_tag :div, class: 'media', id: "review-#{review.id}" do %>
   <p>
     <small>
-      <%= link_to review.user.user_name, user_path(review.user) %> on <%= review.created_at.strftime("%b %d, %Y") %>
+      <%= review.created_at.strftime("%b %d, %Y") %> for <%= review.gym.name %>
       <% if policy(review).edit? %>
         <%= link_to "Edit", edit_gym_review_path(review.gym, review) %> | <%= link_to "Delete", [review.gym, review], method: :delete %>
       <% end %>

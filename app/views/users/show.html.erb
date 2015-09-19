@@ -1,0 +1,64 @@
+<h1 class="gym-title"><%= @user.user_name %>'s Reviews</h1>
+<div class="paginator gym-title">
+  <%= will_paginate @my_reviews, renderer: BootstrapPagination::Rails %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="reviews">
+      <%= render partial: 'users/review', collection: @my_reviews %>
+    </div>
+  </div>
+</div>
+<div class="paginator gym-title">
+  <%= will_paginate @my_reviews, renderer: BootstrapPagination::Rails %>
+</div>
+
+<script type="text/javascript">
+
+  $(function(){
+    $('.pagination a').attr('data-remote', 'true')
+  });
+
+  <% @my_reviews.each do |review| %>
+    $(".coaching_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.coaching %>,
+      readOnly: true
+    });
+
+    $(".equipment_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.equipment %>,
+      readOnly: true
+    });
+
+    $(".pricing_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.pricing %>,
+      readOnly: true
+    });    
+
+    $(".location_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.location %>,
+      readOnly: true
+    });
+
+    $(".score_<%= review.id %>").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starHalf: "<%= image_path('star-half.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: <%= review.score %>,
+      readOnly: true
+    });
+  <% end %>
+
+</script>

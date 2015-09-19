@@ -12,6 +12,7 @@ RSpec.describe Gym, type: :model do
     it { is_expected.to have_db_column(:lat).of_type(:float) }
     it { is_expected.to have_db_column(:long).of_type(:float) }
     it { is_expected.to have_db_column(:unique_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:slug).of_type(:string) }
   end
 
   describe "validations" do

@@ -1,7 +1,7 @@
-$('.reviews').html("<%= escape_javascript(render partial: 'reviews/review', collection: @reviews) %> ");
-$('.paginator').html("<%= escape_javascript(will_paginate @reviews, renderer: BootstrapPagination::Rails) %>");
+$('.reviews').html("<%= escape_javascript(render partial: 'users/review', collection: @my_reviews) %> ");
+$('.paginator').html("<%= escape_javascript(will_paginate @my_reviews, renderer: BootstrapPagination::Rails) %>");
 $('.pagination a').attr('data-remote', 'true');
-<% @reviews.each do |review| %>
+<% @my_reviews.each do |review| %>
   $(".coaching_<%= review.id %>").raty({
     starOn: "<%= image_path('star-on.png') %>",
     starHalf: "<%= image_path('star-half.png') %>",
