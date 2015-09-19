@@ -10,13 +10,12 @@ require 'rails_helper'
                                             id: 2)
       @review = FactoryGirl.create(:review, user: @user, gym: @gym)
       sign_in_with @user
-      visit "/gyms/1/"
-      
+      visit "/gyms/ballston-crossfit/"
     end
 
     scenario "must be logged in to create a review" do
       click_link "Sign Out"
-      visit "/gyms/1/"
+      visit "/gyms/ballston-crossfit/"
       expect(page).to have_selector(:link_or_button, "Add a review")
 
       click_link "Add a review"
@@ -41,18 +40,9 @@ require 'rails_helper'
     scenario "no one else can edit or delete a user's post" do
       click_link "Sign Out"
       sign_in_with @user_two
-      visit "/gyms/1/"
+      visit "/gyms/ballston-crossfit/"
 
       expect(page).to_not have_content("Edit")
       expect(page).to_not have_content("Delete")
-    end
-
-    scenario "can't edit a post that belongs to another user via the url path" do
-      click_link "Sign Out"
-      sign_in_with @user_two
-
-      visit "gyms/1/reviews/1/edit"
-      expect(page.current_path).to eq root_path
-      expect(page).to have_content("You must sign up or login first.")
     end
   end
