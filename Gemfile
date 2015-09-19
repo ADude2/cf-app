@@ -28,6 +28,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'shoulda-matchers', require: false
+  gem 'selenium-webdriver'
 end
 
 group :production do

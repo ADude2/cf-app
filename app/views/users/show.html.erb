@@ -1,7 +1,10 @@
 <h1 class="gym-title"><%= @user.user_name %>'s Reviews</h1>
+<hr>
+
 <div class="paginator gym-title">
   <%= will_paginate @my_reviews, renderer: BootstrapPagination::Rails %>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="reviews">
@@ -9,6 +12,7 @@
     </div>
   </div>
 </div>
+
 <div class="paginator gym-title">
   <%= will_paginate @my_reviews, renderer: BootstrapPagination::Rails %>
 </div>
