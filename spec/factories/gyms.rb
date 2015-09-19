@@ -11,5 +11,4 @@ FactoryGirl.define do
     long -77.1172
     unique_id 6
   end
-
 end
