@@ -19,6 +19,8 @@ class Gym < ActiveRecord::Base
                 :against => [:name, :city, :state, :country],
                 :using => {
                   :tsearch => 
-                    {:dictionary => "english", :any_word => true}
+                    {tsvector_column: "tsv", 
+                      :dictionary => "english", 
+                      :any_word => true}
                 }
 end

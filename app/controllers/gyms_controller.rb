@@ -3,7 +3,7 @@ class GymsController < ApplicationController
     if params[:search].present?
       @gyms = Gym.search_any_word(params[:search])
     else
-      @gyms = Gym.all
+      @gyms = Gym.all.includes(:reviews)
     end
   end
 
