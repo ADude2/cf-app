@@ -18,6 +18,7 @@ class Gym < ActiveRecord::Base
   pg_search_scope :search_any_word,
                 :against => [:name, :city, :state, :country],
                 :using => {
-                  :tsearch => {:any_word => true}
+                  :tsearch => 
+                    {:dictionary => "english", :any_word => true}
                 }
 end
