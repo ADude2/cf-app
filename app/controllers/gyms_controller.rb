@@ -1,9 +1,10 @@
 class GymsController < ApplicationController
   def index
     if params[:search].present?
-      @gyms = Gym.search_any_word(params[:search])
+      @gyms = Gym.search_any_word(params[:search]).includes(:reviews)
     else
-      @gyms = Gym.all.includes(:reviews)
+      flash[:alert] = "Please specify a search term"
+      redirect_to root_path
     end
   end
 
