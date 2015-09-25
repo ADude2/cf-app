@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]>      <html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>      <html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
 <head>
+  <meta charset="utf-8" />
   <title>CrossRater - Crossfit Box Reviews</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="crossfit, crossfit affiliate, crossfit box, wod, reviews" />
+  <meta name="description" content="Look up or leave a review for any CrossFit box." />
+  <meta name="Author" content="CrossRater.com" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
-<body>
+<body class="smoothscroll boxed">
+
+  <div id="wrapper">
+
     <%= render :partial => 'layouts/header' %>
 
-    <div id="notice">
-      <%= render :partial => 'layouts/flash' , :locals => { :flash => flash } %>
-    </div>
+    <%= render :partial => 'layouts/flash' , :locals => { :flash => flash } %>
 
-    <div class="container">
-      <%= yield %>
-      <%= render :partial => 'layouts/footer' %>
-    </div>
+    <%= yield %>
+    
+    <%= render :partial => 'layouts/footer' %>
+  
+  </div>
+
 </body>
 </html>

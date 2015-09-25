@@ -15,56 +15,17 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome";
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext);
+ @import "epona/essentials";
+ @import "epona/layout";
+ @import "epona/header-3";
+ @import "epona/footer-default";
+ @import "epona/red";
+ @import "epona/sky-forms";
 
-/* General styling */
-
-html {
-  height: 100%;
-}
-
-body {
-  padding-top: 60px;
-  padding-bottom: 75px;
-}
-
-/* Devise views styling */
-
-.log-in{
-  margin-left: auto;
-  margin-right: auto;
-  text-align:center;
-  border: none;
-}
-
-/* Show page styling */
-
-.gym-title{
-  display: flex;
-  justify-content: center;
-}
-
-
-
-/* Footer */
-
-footer {
-  position: fixed;
-  left:0px;
-  bottom:0px;
-  height:50px;
-  width:100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid #eaeaea;
-  background-color: white;
-  z-index:2;
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
+ .center-pills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

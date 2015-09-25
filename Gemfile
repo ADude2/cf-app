@@ -20,6 +20,7 @@ gem 'friendly_id'
 gem 'will_paginate-bootstrap'
 gem 'pg'
 gem 'pg_search'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'

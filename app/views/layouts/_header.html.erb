@@ -1,37 +1,79 @@
-<nav class="navbar navbar-fixed-top navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button class="navbar-toggle collapsed" data-target="#bs-navbar-collapse-1" data-toggle="collapse" type="button">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="navbar-brand">
-        <%= link_to "CrossRater", root_path %>
-      </div>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to (current_user.user_name), current_user %>
-          </li>
-          <li><%= link_to edit_user_registration_path do %>
-            <span class="glyphicon glyphicon-user"></span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "Register", new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "Login", new_user_session_path %>
-          </li>
+<div id="header">
+
+  <!-- Top Bar -->
+  <header id="topBar" class="styleBackgroundColor"> 
+  </header>
+  <!-- /Top Bar -->
+
+
+  <!-- Top Nav -->
+  <header id="topNav">
+    <div class="container">
+
+      <!-- Logo -->
+        <%= link_to root_path, { :class=>"logo" } do %>
+          <%= image_tag 'logo.png', height: 50, alt:'' %>
         <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+    
+      <!-- Mobile Menu Button -->
+      <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <!-- Top Nav -->
+      <div class="navbar-collapse nav-main-collapse collapse">
+        <nav class="nav-main">
+          <ul id="topMain" class="nav nav-pills nav-main colored">
+            <li class="<%= 'active' if current_page?(root_path) %>">
+              <%= link_to root_path do %>
+                HOME <span>welcome</span>
+              <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?(about_path) %>">
+              <%= link_to about_path do %>
+                ABOUT <span>learn more</span>
+              <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?(contact_path) %>">
+              <%= link_to contact_path do %>
+                CONTACT <span>message us</span>
+              <% end %>
+            </li>
+            <% if user_signed_in? %>
+              <li class="<%= 'active' if current_page?(current_user) %>">
+                <%= link_to current_user do %>
+                    <%= (current_user.user_name).upcase %><span>my profile</span>
+                <% end %>
+              </li>
+              <li class="<%= 'active' if current_page?(edit_user_registration_path) %>">
+                <%= link_to edit_user_registration_path do %>
+                  ACCOUNT <span>edit details</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  SIGN OUT <span>goodbye</span>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="<%= 'active' if current_page?(new_user_registration_path) %>">
+                <%= link_to new_user_registration_path do %>
+                  REGISTER <span>sign up</span>
+                <% end %>
+              </li>
+              <li class="<%= 'active' if current_page?(new_user_session_path) %>">
+                <%= link_to new_user_session_path do %>
+                  LOGIN <span>your account</span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+      <!-- /Top Nav -->
+
+    </div><!-- /.container -->
+  </header>
+  <!-- /Top Nav -->
+</div>

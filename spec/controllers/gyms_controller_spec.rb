@@ -3,14 +3,9 @@ require 'rails_helper'
 RSpec.describe GymsController, type: :controller do
 
   describe "GET index page" do
-    it "returns http success" do
+    it "returns http redirect" do
       get :index
-      expect(response).to have_http_status(:success)
-    end
-
-    it "renders the index template" do
-      get :index
-      expect(response).to render_template :index
+      expect(response).to have_http_status(302)
     end
   end
 

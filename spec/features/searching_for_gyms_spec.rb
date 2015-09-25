@@ -16,11 +16,10 @@ feature "search function" do
     visit root_path
   end
 
-  scenario "not entering a search term shows all gyms" do
+  scenario "not entering a search term shows error" do
     click_button "Search"
 
-    expect(page).to have_content "#{@gym.name}"
-    expect(page).to have_content "#{@gym2.name}"
+    expect(page).to have_content "Please specify a search term"
   end
 
   scenario "searching for a gym returns the result only" do
