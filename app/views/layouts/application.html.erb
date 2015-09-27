@@ -24,9 +24,9 @@
     <div id="notice">
       <%= render :partial => 'layouts/flash' , :locals => { :flash => flash } %>
     </div>
-    <div class="container text-center">
-      <%= yield %>
-    </div>
+
+    <%= yield %>
+
     <%= render :partial => 'layouts/footer' %>
     
   </div>
