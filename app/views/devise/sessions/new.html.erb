@@ -11,7 +11,7 @@
             <%= f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email', input_html: { class: 'input-md' } %>
             <%= f.input :password, required: true, label: false, placeholder: 'Password', input_html: { class: 'input-md' } %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-            <%= f.button :submit, "Log in", class: 'btn-md btn-info btn-block' %>
+            <%= f.button :submit, "Log in", class: 'btn-md btn-primary btn-block' %>
           </div>
         <% end %>
       </div>

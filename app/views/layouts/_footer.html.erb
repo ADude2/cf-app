@@ -1,7 +1,41 @@
-<footer class="footer">
-  <small>  
-    <nav>
-      <%= link_to "About CrossRater", about_path %> © <%= link_to "Contact Us", contact_path %>
-    </nav>
-  </small>
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- col #1 -->
+      <div class="spaced col-md-8">
+        <h4>Why use <strong>CrossRater?</strong></h4>
+        <p class="block">
+          With the explosion in popularity of CrossFit in recent years new gyms (known as boxes) have been popping up almost overnight, and picking the right one can seem like a daunting task. Perhaps you're new to the community and looking to find your closest box. Maybe you've been around for a while and you're looking to move or you just want to share with the world how great your new home is. What ever your reason may be, we're here to help!
+        </p>
+      </div>
+      <!-- /col #1 -->
+
+      <!-- col #2 -->
+      <div class="spaced col-md-4">
+        <h4>About <strong>CrossRater</strong></h4>
+        <p>
+          We're big fans of fitness and we want to help <strong>you</strong> find a box you'll love.
+          <%= link_to about_path do %>
+            Learn More <i class="fa fa-arrow-right"></i>
+          <% end %>
+        </p>
+      </div>
+      <!-- /col #2 -->
+
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="copyright">
+    <div class="container text-center fsize12">
+      &copy; 2015 CrossRater.com &bull; CrossFit is a registered trademark of <a href="http://www.crossfit.com" target="_blank">CrossFit, Inc.</a> &bull; CrossRater is unaffiliated with CrossFit, Inc.
+    </div>
+  </div>
 </footer>
+<!-- /FOOTER -->
+
+<a href="#" id="toTop"></a>
