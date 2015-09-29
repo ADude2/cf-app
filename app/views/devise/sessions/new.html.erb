@@ -1,17 +1,24 @@
-<section>  
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Log In</h2>
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html=> { class: 'sky-form boxed' }) do |f| %>
-          <%= f.error_notification %>
-          <div class="panel-body">
-            <%= f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email', input_html: { class: 'input-md' } %>
-            <%= f.input :password, required: true, label: false, placeholder: 'Password', input_html: { class: 'input-md' } %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-            <%= f.button :submit, "Log in", class: 'btn-md btn-primary' %>
-          </div>
-        <% end %>
+<section>
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-light margin-top50 margin-bottom50">
+
+        <div class="panel-heading">
+          <h3 class="panel-title bold text-center"> Log In</h3>
+        </div>
+        
+        <div class="panel-body">
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+              <%= f.input :email, required: true, autofocus: true, label: false, placeholder: '&#xf0e0;  Email'.html_safe %>
+              <%= f.input :password, required: true, label: false, placeholder: '&#xf023;  Password'.html_safe %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              <div class="text-center">
+                <%= f.button :submit, "Log in", class: 'btn-md btn-primary' %>
+              </div>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>

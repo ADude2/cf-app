@@ -24,8 +24,6 @@
  @import "epona/red";
  @import "epona/sky-forms";
 
- .center-pills {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+ .search, .panel-body {
+  font-family: FontAwesome;
+ }
