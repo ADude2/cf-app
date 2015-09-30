@@ -1,19 +1,21 @@
-<h1 class="gym-title"><%= @user.user_name %>'s Reviews</h1>
-<hr>
+<div class="callout">
+  <div class="container text-center">
+    <h2><%= @user.user_name %>'s Reviews</h2>
+  </div>
+</div>  
+<hr class="nomargin">
 
-<div class="paginator gym-title">
+<div class="paginator text-center margin-top30 margin-bottom30">
   <%= will_paginate @my_reviews, renderer: BootstrapPagination::Rails %>
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="reviews">
-      <%= render partial: 'users/review', collection: @my_reviews %>
-    </div>
+  <div class="reviews">
+    <%= render partial: 'users/review', collection: @my_reviews %>
   </div>
 </div>
 
-<div class="paginator gym-title">
+<div class="paginator text-center margin-top30 margin-bottom30">
   <%= will_paginate @my_reviews, renderer: BootstrapPagination::Rails %>
 </div>
 

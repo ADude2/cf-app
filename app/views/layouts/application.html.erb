@@ -15,7 +15,7 @@
   <%= csrf_meta_tags %>
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
-<body class="smoothscroll boxed">
+<body<%= yield(:body_attributes) %> class="smoothscroll boxed">
 
   <div id="wrapper">
 
