@@ -14,7 +14,7 @@ require 'rails_helper'
     end
 
     scenario "must be logged in to create a review" do
-      click_link "Sign Out"
+      click_link "SIGN OUT"
       visit "/gyms/ballston-crossfit/"
       expect(page).to have_selector(:link_or_button, "Add a review")
 
@@ -38,7 +38,7 @@ require 'rails_helper'
     end
 
     scenario "no one else can edit or delete a user's post" do
-      click_link "Sign Out"
+      click_link "SIGN OUT"
       sign_in_with @user_two
       visit "/gyms/ballston-crossfit/"
 

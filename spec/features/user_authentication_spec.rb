@@ -7,26 +7,26 @@ feature "User authentication" do
 
   scenario "Can login from the index page" do
     visit root_path
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to_not have_content("SIGN OUT")
 
-    click_link "Login"
-    fill_in "Email", with: "lolleroni@example.com"
-    fill_in "Password", with: "helloworld"
+    click_link "LOGIN"
+    fill_in "  Email", with: "lolleroni@example.com"
+    fill_in "  Password", with: "helloworld"
     click_button "Log in"
 
     expect(page).to have_content("Signed in successfully.")
-    expect(page).to_not have_content("Register")
-    expect(page).to have_content("Sign Out")
+    expect(page).to_not have_content("REGISTER")
+    expect(page).to have_content("SIGN OUT")
   end
 
   scenario "Can logout once logged in" do
     visit root_path
     
-    click_link "Login"
-    fill_in "Email", with: "lolleroni@example.com"
-    fill_in "Password", with: "helloworld"
+    click_link "LOGIN"
+    fill_in "  Email", with: "lolleroni@example.com"
+    fill_in "  Password", with: "helloworld"
     click_button "Log in"
-    click_link "Sign Out"
+    click_link "SIGN OUT"
 
     expect(page).to have_content("Signed out successfully.")
   end
@@ -34,16 +34,16 @@ feature "User authentication" do
   scenario "Can edit profile once logged in" do
     visit root_path
     
-    click_link "Login"
-    fill_in "Email", with: "lolleroni@example.com"
-    fill_in "Password", with: "helloworld"
+    click_link "LOGIN"
+    fill_in "  Email", with: "lolleroni@example.com"
+    fill_in "  Password", with: "helloworld"
     click_button "Log in"
 
     visit edit_user_registration_path
     expect(page).to have_content("Edit User")
 
-    fill_in "Email", with: "lolleroni@example.com"
-    fill_in "Enter Current Password to Save Changes", with: "helloworld"
+    fill_in "  Email", with: "lolleroni@example.com"
+    fill_in "  Enter Current Password to Save Changes", with: "helloworld"
     click_button "Update"
     expect(page).to have_content("Your account has been updated successfully.")
   end
@@ -51,9 +51,9 @@ feature "User authentication" do
   scenario "Can delete profile once logged in" do
     visit root_path
     
-    click_link "Login"
-    fill_in "Email", with: "lolleroni@example.com"
-    fill_in "Password", with: "helloworld"
+    click_link "LOGIN"
+    fill_in "  Email", with: "lolleroni@example.com"
+    fill_in "  Password", with: "helloworld"
     click_button "Log in"
 
     visit edit_user_registration_path
