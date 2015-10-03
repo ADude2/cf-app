@@ -9,7 +9,7 @@
             <%= link_to "Edit", edit_gym_review_path(review.gym, review) %> | <%= link_to "Delete", [review.gym, review], method: :delete, data: {confirm: "Are you sure you want to delete this review?"} %>
           <% end %>
         </small>    
-        <p class="text-justify">
+        <p class="block">
           <%= review.content %>
         </p>
       </div>
