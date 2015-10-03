@@ -1,18 +1,19 @@
 <%= content_tag :div, class: 'media', id: "review-#{review.id}" do %>
   <div class="container margin-bottom20">
     <div class="row">
-      <div class="spaced col-md-8">
+      <div class="col-md-4 col-md-offset-2 col-xs-7 form-group pull-left">
         <small>
           <%= review.created_at.strftime("%b %d, %Y") %> for <%= link_to (review.gym.name), [review.gym, anchor: "review-#{review.id}"], 'data-no-turbolink' => true %>
+          <br>
           <% if policy(review).edit? %>
-          <%= link_to "Edit", edit_gym_review_path(review.gym, review) %> | <%= link_to "Delete", [review.gym, review], method: :delete, data: {confirm: "Are you sure you want to delete this review?"} %>
+            <%= link_to "Edit", edit_gym_review_path(review.gym, review) %> | <%= link_to "Delete", [review.gym, review], method: :delete, data: {confirm: "Are you sure you want to delete this review?"} %>
           <% end %>
         </small>  
         <p class="block">
           <%= review.content %>
         </p>
       </div>
-      <div class="spaced col-md-4">
+      <div class="col-md-4 col-xs-5 form-group pull-right">
         Coaching: <div class="coaching_<%= review.id %>"></div>
         Equipment: <div class="equipment_<%= review.id %>"></div>
         Pricing: <div class="pricing_<%= review.id %>"></div>
