@@ -9,12 +9,16 @@ class Gym < ActiveRecord::Base
 
   friendly_id :name, use: [:slugged, :history]
 
-  def average_rating
+  def calculate_average_rating
     (self.reviews.sum(:score) / reviews.size).round(2)
   rescue ZeroDivisionError
     0
   end
 
+  def update_average_rating
+    update_attributes(average_rating: calculate_average_rating)
+  end
+  
   pg_search_scope :search_any_word,
                 :against => [:name, :city, :state, :country],
                 :using => {

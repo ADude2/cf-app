@@ -122,7 +122,8 @@ CREATE TABLE gyms (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     slug character varying,
-    tsv tsvector
+    tsv tsvector,
+    average_rating double precision
 );
 
 
@@ -343,6 +344,13 @@ CREATE INDEX index_friendly_id_slugs_on_sluggable_type ON friendly_id_slugs USIN
 
 
 --
+-- Name: index_gyms_on_average_rating; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_gyms_on_average_rating ON gyms USING btree (average_rating);
+
+
+--
 -- Name: index_gyms_on_city; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -490,4 +498,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150919152704');
 INSERT INTO schema_migrations (version) VALUES ('20150919232551');
 
 INSERT INTO schema_migrations (version) VALUES ('20150920231323');
+
+INSERT INTO schema_migrations (version) VALUES ('20151003174724');
 
