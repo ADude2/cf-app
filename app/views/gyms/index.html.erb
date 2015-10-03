@@ -1,28 +1,32 @@
-<h1>CF Boxes</h1>
+<section>
+  <div class="container">
+    <h2 class="text-center">Showing all results for "<%= @search %>"</h2>
 
-<table data-toggle="table" data-pagination="true" data-page-list="[5, 10, 20, 50, 100]" data-sort-name="name" data-sort-order="asc">
-  <thead>
-    <tr>
-      <th data-field="name" data-align="center" data-sortable="true">Name</th>
-      <th data-field="city" data-align="center" data-sortable="true">City</th>
-      <th data-field="state" data-align="center" data-sortable="true">State</th>
-      <th data-field="country" data-align="center" data-sortable="true">Country</th>
-      <th data-field="average" data-align="center" data-sortable="true">Average</th>
-    </tr>
-  </thead>
+    <table data-toggle="table" data-pagination="true" data-page-list="[5, 10, 20, 50, 100]" data-sort-name="name" data-sort-order="asc">
+      <thead>
+        <tr>
+          <th data-field="name" data-align="center" data-sortable="true">Name</th>
+          <th data-field="city" data-align="center" data-sortable="true">City</th>
+          <th data-field="state" data-align="center" data-sortable="true">State</th>
+          <th data-field="country" data-align="center" data-sortable="true">Country</th>
+          <th data-field="average" data-align="center" data-sortable="true">Average</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @gyms.each do |gym| %>
-      <tr>
-        <td><%= link_to gym.name, gym, 'data-no-turbolink' => true %></td>
-        <td><%= gym.city %></td>
-        <td><%= gym.state %></td>
-        <td><%= gym.country %></td>
-        <td><div class="average_<%= gym.id %>"></div></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @gyms.each do |gym| %>
+          <tr>
+            <td><%= link_to gym.name, gym, 'data-no-turbolink' => true %></td>
+            <td><%= gym.city %></td>
+            <td><%= gym.state %></td>
+            <td><%= gym.country %></td>
+            <td><div class="average_<%= gym.id %>"></div></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <script type="text/javascript">
 
