@@ -21,6 +21,7 @@ gem 'will_paginate-bootstrap'
 gem 'pg'
 gem 'pg_search'
 gem 'font-awesome-rails'
+gem 'sinatra', :require => nil
 
 
 group :development, :test do

@@ -51,6 +51,13 @@
                   ACCOUNT <span>edit details</span>
                 <% end %>
               </li>
+              <% if current_user.admin? %>
+                <li class="<%= 'active' if current_page?(sidekiq_web_path) %>">
+                  <%= link_to sidekiq_web_path do %>
+                    MONITORING <span>sidekiq panel</span>
+                  <% end %>
+                </li>
+              <% end %>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   SIGN OUT <span>goodbye</span>
