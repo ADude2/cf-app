@@ -1,12 +1,18 @@
-<div class="col-md-4">
-  <%= form_for :gym_id, url: gymrefreshes_path do |b| %>
-      <div class="form-group">
-        <%= b.label :gym_id %>
-        <%= b.text_field :gym_id, class: "form-control", placeholder: "Enter Gym ID" %>
+<section>
+  <div class="container text-center">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">This feature will manually refresh a box by its specified unique ID</h3>
       </div>
-      <div class="form-group">
-        <%= b.submit "Refresh The Gym!", class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+      <%= form_for :gym_id, url: gymrefreshes_path do |b| %>
+        <div class="form-group">
+          <%= b.label :gym_id %>
+          <%= b.text_field :gym_id, class: "form-control", placeholder: "Enter Gym ID" %>
+        </div>
+        <div class="form-group">
+          <%= b.submit "Refresh The Gym!", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+</section>

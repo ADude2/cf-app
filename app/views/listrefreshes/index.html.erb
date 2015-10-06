@@ -1,8 +1,15 @@
-<div class="col-md-4">
-  <%= form_for :listrefresh, url: listrefreshes_path do |b| %>
-      <div class="form-group">
-        <%= b.submit "Refresh The List!", class: 'btn btn-primary' %>
+<section>
+  <div class="container text-center">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">This feature will refresh the master list of all CrossFit Boxes. It will create a key/value store with the unique ID as key and the full hash of information as the value.</h3>
       </div>
-    <% end %>
+      <br>
+      <%= form_for :listrefresh, url: listrefreshes_path do |b| %>
+        <div class="form-group">
+          <%= b.submit "Refresh The List!", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+</section>
