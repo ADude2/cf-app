@@ -22,6 +22,7 @@ gem 'pg'
 gem 'pg_search'
 gem 'font-awesome-rails'
 
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -30,6 +31,8 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers', require: false
   gem 'selenium-webdriver'
+  gem 'letter_opener'
+  gem 'launchy'
 end
 
 group :production do

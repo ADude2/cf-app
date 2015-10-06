@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   resources :users, only: [:show]
 
   root 'welcome#index'
   get 'about' => 'welcome#about'
-  get 'contact' => 'welcome#contact'
 
   resources :gyms, only: [:index, :show] do
     resources :reviews, except: [:index, :show]
@@ -13,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :listrefreshes, only: [:index, :create]
   resources :gymrefreshes, only: [:index, :create]
+  resources :messages, only: [:new, :create]
 end

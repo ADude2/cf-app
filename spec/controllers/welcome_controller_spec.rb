@@ -15,11 +15,4 @@ RSpec.describe WelcomeController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "GET contact us page" do
-    it "returns http success" do
-      get :contact
-      expect(response).to have_http_status(:success)
-    end
-  end
 end

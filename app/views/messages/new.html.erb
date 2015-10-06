@@ -1,0 +1,28 @@
+<section>
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">Are we missing a box or do we have inaccurate information? Do you need to flag a certain comment? Just want to say hi? Don't be shy, get in touch with us with the form below!</h3>
+      </div>
+      <div class="panel panel-light margin-top50 margin-bottom50">
+
+        <div class="panel-heading">
+          <h3 class="panel-title bold text-center"> Send us a message</h3>
+        </div>
+        
+        <div class="panel-body">
+          <%= simple_form_for @message do |f| %>
+            <%= f.error_notification %>
+              <%= f.input :name, required: true, autofocus: true, label: false, placeholder: '&#xf007;  Your Name'.html_safe %>
+              <%= f.input :email, required: true, label: false, placeholder: '&#xf0e0;  Your Email Address'.html_safe %>
+              <%= f.input :subject, required: true, label: false, placeholder: '&#xf27a;  Subject'.html_safe %>
+              <%= f.input :content, required: true, label: false, placeholder: '&#xf27a;  Your Message'.html_safe, as: :text %>
+              <div class="text-center">
+                <%= f.button :submit, "Send", class: 'btn-md btn-primary' %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
