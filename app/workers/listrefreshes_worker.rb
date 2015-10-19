@@ -1,5 +1,6 @@
 class ListrefreshesWorker
   include Sidekiq::Worker
+  sidekiq_options :retry => false
   require 'open-uri'
 
   def fetch_remote_source

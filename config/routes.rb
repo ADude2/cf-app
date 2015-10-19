@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :listrefreshes, only: [:index, :create]
   resources :gymrefreshes, only: [:index, :create]
+  resources :massgymimports, only: [:index, :create]
   resources :messages, only: [:new, :create]
 
   require 'sidekiq/web'

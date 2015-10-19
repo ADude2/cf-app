@@ -26,5 +26,6 @@ class Gym < ActiveRecord::Base
                     {tsvector_column: "tsv", 
                       :dictionary => "english", 
                       :any_word => true}
-                }
+                },
+                ignoring: :accents
 end

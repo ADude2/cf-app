@@ -1,0 +1,15 @@
+<section>
+  <div class="container text-center">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">This feature will parse, merge and import all CrossFit boxes stored in the master list created by the List Refresh option. This is time-consuming, be warned.</h3>
+      </div>
+      <br>
+      <%= form_for :massgymimport, url: massgymimports_path do |b| %>
+        <div class="form-group">
+          <%= b.submit "Import all boxes!", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

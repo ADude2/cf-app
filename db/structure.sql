@@ -23,6 +23,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: unaccent; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
+
+
 SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
@@ -500,4 +514,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150919232551');
 INSERT INTO schema_migrations (version) VALUES ('20150920231323');
 
 INSERT INTO schema_migrations (version) VALUES ('20151003174724');
+
+INSERT INTO schema_migrations (version) VALUES ('20151019223030');
 
