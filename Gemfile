@@ -22,7 +22,6 @@ gem 'pg'
 gem 'pg_search'
 gem 'font-awesome-rails'
 gem 'sinatra', :require => nil
-gem 'yaml_db'
 
 group :development, :test do
   gem 'byebug'
