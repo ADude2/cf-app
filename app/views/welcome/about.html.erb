@@ -1,1 +1,86 @@
-<h1>The About Page</h1>
+<div class="callout">
+  <div class="container text-center">
+    <h2>Frequently Asked Questions</h2>
+  </div>
+</div>
+
+<hr class="nomargin">
+
+<div class="container padding30">
+  <div class="col-md-8 col-md-offset-2">
+    <h3 class="panel-title text-center">Here are a few answers to our most commonly asked questions:</h3>
+    <br />
+  
+    <div class="toggle"><!-- toggle -->
+      <label>What is the purpose of CrossRater?</label>
+      <div class="toggle-content">
+        <p class="lead">There are a <i>lot</i> of boxes in the world, and the number is only growing. We're here to help you find the best one.</p>
+        <p class="clearfix">
+          There are currently approximately 12,000 affiliates throughout the world and with the popularity and accessibility of CrossFit increasing daily, that number is only going to continue to grow with each passing month.
+          <br /><br />
+          With that said, not all affiliates are created equal. Whether it's an issue with coaching, equipment, atmosphere, pricing or location, there are a variety of factors that come into play when trying to find your special new fitness home. Whether you just want to drop-in on a class, are from out-of-town looking to shake off the rust, or looking for a new box to call your second-home, CrossRater is here to help you make the most informed decision possible.
+        </p>
+      </div>
+    </div><!-- /toggle -->
+
+    <div class="toggle"><!-- toggle -->
+      <label>How does CrossRater work?</label>
+      <div class="toggle-content">
+        <p class="clearfix">
+          CrossRater allows you to search for any box by name, city, region and country in the world and see reviews left by people who've been there before.
+          <br /><br />
+          Looking for a new affiliate in Montreal for example? Type in "Montreal" into the search bar and you'll be presented with all boxes in the area. In some cases, regions are abbreviated, so if nothing is coming up for "Quebec," try a search for "QC." Sort through the results however you want and with ease. Quickly see an average rating for each box if available, or click on it for more details. See where they're located, what reviews people have left, their contact information or website and more, all from your computer, tablet or phone.
+        </p>
+      </div>
+    </div><!-- /toggle -->
+
+    <div class="toggle"><!-- toggle -->
+      <label>How do I submit a review?</label>
+      <div class="toggle-content">
+        <p class="clearfix">
+          Searching for boxes and reading reviews does not require an account, however if you wish to leave a review, signing up for a free account is necessary.
+          <br /><br />
+          Registration is quick, and more importantly - <strong>free</strong>. You can click <%= link_to "here", new_user_registration_path %> to access the Sign Up form. Simply provide a username, email address and password and you're done. We'll send you an email to confirm your account and you can then share your thoughts with the world about your favorite box!
+          <br /><br />
+          If you already have an account, you can access the Login form <%= link_to "here", new_user_session_path %>. After inputting your account information, you'll be logged in and can view your profile, past reviews or leave a new one! 
+        </p>
+      </div>
+    </div><!-- /toggle -->
+
+    <div class="toggle"><!-- toggle -->
+      <label>How are ratings calculated?</label>
+      <div class="toggle-content">
+        <p class="clearfix">
+          CrossRater strives to provide a fair and comprehensive rating system for users to cover the most important aspects of an affiliate.
+          <br /><br />
+          When a user decides to leave a review, they will be provided with multiple criteria to rate including "Coaching", "Equipment", "Pricing", and "Location." From there, the ratings of all 4 categories are compiled into an overall score which is dynamically updated with each review. CrossRater then uses the average created by each overall score to display as a box's average rating for a maximum of 5 out of 5 stars.
+        </p>
+      </div>
+    </div><!-- /toggle -->
+
+    <div class="toggle"><!-- toggle -->
+      <label>How trustworthy are the reviews?</label>
+      <div class="toggle-content">
+        <p class="clearfix">
+          Every account requires a verified email address to be associated with it. Reviews are left by real people. Some people may have an axe to grind or a stake to protect however, so we're placing a large amount of trust in our users to be honest.
+          <br /><br />
+          If issues arise with a certain user or review, we encourage you to report the account or comment in question through our <%= link_to "Contact page.", new_message_path %>
+        </p>
+      </div>
+    </div><!-- /toggle -->
+
+    <div class="toggle"><!-- toggle -->
+      <label>I've spotted incorrect information, how can I report it?</label>
+      <div class="toggle-content">
+        <p class="clearfix">
+          With the explosion of popularity in CrossFit, the times move quickly and affiliates are constantly opening up, moving or closing. We try our best to remain on top of things here at CrossRater, however if we're missing an affiliate, have incorrect information, the box in question doesn't exist anymore, or there's an issue with a user or a review, please let us know! 
+          <br /><br />
+          You can always reach us through the <%= link_to "contact page.", new_message_path %> Please make sure to include as much relevant information as possible and/or direct links to help us address the issue in a timely manner. 
+        </p>
+      </div>
+    </div><!-- /toggle -->
+    <br />
+
+    <h3 class="panel-title text-center">For all other questions or issues not addressed above, contact us <%= link_to "<strong>here</strong>.".html_safe, new_message_path %></h3>
+  </div>
+</div>
