@@ -1,3 +1,11 @@
-<h1>Edit Your Review of <%= @gym.name %></h1>
-
-<%= render partial: 'form', locals: { gym: @gym, review: @review } %>
+<div class="callout">
+  <div class="container text-center">
+    <h2>Edit Your Review of <%= @gym.name %></h2>
+  </div>
+</div>
+<hr class="nomargin">
+<div class="container padding30">
+  <div class="row">  
+      <%= render partial: 'form', locals: { gym: @gym, review: @review } %>
+  </div>
+</div>

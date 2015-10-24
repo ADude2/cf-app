@@ -20,7 +20,7 @@
             <td><%= gym.city %></td>
             <td><%= gym.state %></td>
             <td><%= gym.country %></td>
-            <td><div class="average_<%= gym.id %>"></div></td>
+            <td><div class="average_<%= gym.id %>"></div>(<%= gym_rated(gym) %>)</td>
           </tr>
         <% end %>
       </tbody>

@@ -10,7 +10,7 @@ class Gym < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :history]
 
   def calculate_average_rating
-    (self.reviews.sum(:score) / reviews.size).round(2)
+    (self.reviews.sum(:score) / reviews.size).round(1)
   rescue ZeroDivisionError
     0
   end

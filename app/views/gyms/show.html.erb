@@ -22,7 +22,7 @@
         <li><strong>Country</strong>: <%= @gym.country %></li>
       </ul>
       <br><br>
-      <strong>Overall Rating</strong>: <%= @gym.average_rating %> on 5 based on <%= @review_count %> <%= "review".pluralize(@review_count) %>.
+      <strong>Overall Rating</strong>: <%= @gym.average_rating.nil? ? "No Reviews Yet" : "#{@gym.average_rating} on 5 based on #{@review_count} #{ "review".pluralize(@review_count)}." %>
     </div>
   </div>
 </div>
@@ -50,7 +50,11 @@
 
 <div class="container">
     <div class="reviews">
-      <%= render partial: 'reviews/review', collection: @reviews %>
+      <% if @review_count == 0 %> 
+        <p class="text-center"><strong>No Reviews Yet! Be the first to share your thoughts!</strong></p>
+      <% else %>
+        <%= render partial: 'reviews/review', collection: @reviews %>
+      <% end %>
     </div>
 </div>
 
@@ -66,6 +70,7 @@
   function initialize() {
     var mycenter = { lat: <%= @gym.lat %>, lng: <%= @gym.long %> }
     var mapOptions = {
+      scrollwheel: false,
       center: mycenter,
       zoom: 15
     };

@@ -1,41 +1,48 @@
-<%= simple_form_for [gym, review] do |f| %>
-  <%= f.error_notification %>
-  <div class="row">
-    <div class="col-md-8">
-      <%= f.input :content, required: true, autofocus: true, label: false, placeholder: "Share your thoughts with us!", input_html: { class: 'input-md' } %>
-      <%= f.button :submit, "Submit Review", class: "btn-md btn-info" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <label>Coaching</label>
-      <div id="coaching" class="stars"></div>
-      <%= f.hidden_field :coaching, required: true %>
-    </div>
-    <div class="col-md-3">
-      <label>Equipment</label>
-      <div id="equipment" class="stars"></div>
-      <%= f.hidden_field :equipment, required: true %>
-    </div>
-    <div class="col-md-3">
-      <label>Pricing</label>
-      <div id="pricing" class="stars"></div>
-      <%= f.hidden_field :pricing, required: true %>
-    </div>
-    <div class="col-md-3">
-      <label >Location</label>
-      <div id="location" class="stars"></div>
-      <%= f.hidden_field :location, required: true %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <label>Overall Score</label>
-      <div id="overall"></div>
-      <%= f.hidden_field :score, required: true %>
-    </div>
-  </div>
-<% end %>
+<div class="col-md-8 col-md-offset-2">
+  <p class="text-center">Tips for writing a helpful review:</p>
+  <p><strong>Coaching:</strong> Is the coach encouraging and helpful? Does he/she teach good form and proactively help others during the WOD? Does the coach help foster a fun and welcoming atmosphere? Is there an overarching programming structure or are WODs seemingly just pulled out of a hat?</p>
+  <p><strong>Equipment:</strong> Does the box have sufficient amounts of bars for everyone? Are there enough plates or are they all cracked? Do you have to wait for someone to come off the rower before you can jump on? Is the gym kept clean or are the bars all bloody?</p>
+  <p><strong>Pricing:</strong> How is the box's pricing structure? Is it reasonably priced or is it more expensive than others? Does your membership include unlimited classes or can you only attend a certain amount of times per week/month? Are there any extras included with your membership? (ie: seminars, towel service, etc.)</p>
+  <p><strong>Location:</strong> How is the area the box is located in? Is it far out of the way or is it easibly accessible? Is there sufficient parking? Is it safe?</p>
+  <br>
+  <%= simple_form_for [gym, review] do |f| %>
+    <%= f.error_notification %>
+      <div class="row text-center">
+        <div class="col-md-3">
+          <label>Coaching:</label>
+          <div id="coaching" class="stars"></div>
+          <%= f.hidden_field :coaching, required: true %>
+        </div>
+        <div class="col-md-3">
+          <label>Equipment:</label>
+          <div id="equipment" class="stars"></div>
+          <%= f.hidden_field :equipment, required: true %>
+        </div>
+        <div class="col-md-3">
+          <label>Pricing:</label>
+          <div id="pricing" class="stars"></div>
+          <%= f.hidden_field :pricing, required: true %>
+        </div>
+        <div class="col-md-3">
+          <label >Location:</label>
+          <div id="location" class="stars"></div>
+          <%= f.hidden_field :location, required: true %>
+        </div>
+      </div>
+      <br>
+      <div class="row text-center">
+          <label>Overall Score:</label>
+          <div id="overall"></div>
+          <%= f.hidden_field :score, required: true %>
+      </div>
+      <br><br>
+      <%= f.input :content, required: true, autofocus: true, label: false, placeholder: "Share your thoughts with us!", as: :text, input_html: {:style => 'width: 100%;', :rows => 5} %>
+      <div class="text-center">
+        <%= f.button :submit, "Submit Review", class: "btn-md btn-primary" %>
+      </div>
+      <br>
+  <% end %>
+</div>
 
 <script>
   $("#coaching").raty({
