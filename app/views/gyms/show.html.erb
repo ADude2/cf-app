@@ -14,7 +14,7 @@
 
     <div class="spaced col-md-4 form-group text-center">
       <ul class="list-unstyled">
-        <li><strong>Website</strong>: <%= link_to @gym.website, @gym.website %></li>
+        <li><strong>Website</strong>: <%= @gym.website == "f" ? "N/A" : link_to(@gym.website, @gym.website) %></li>
         <li><strong>Address</strong>: <%= @gym.address %></li>
         <li><strong>City</strong>: <%= @gym.city %></li>
         <li><strong>State</strong>: <%= @gym.state %></li>
