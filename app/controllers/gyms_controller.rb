@@ -3,6 +3,7 @@ class GymsController < ApplicationController
     if params[:search].present?
       @search = params[:search]
       @gyms = Gym.search_any_word(@search).includes(:reviews).paginate(page: params[:page], per_page: 10)
+      @gym_count = @gyms.count
     else
       flash[:alert] = "Please specify a search term"
       redirect_to root_path

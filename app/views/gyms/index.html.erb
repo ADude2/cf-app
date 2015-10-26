@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <h2 class="text-center">Showing <%= @gyms.count %> results for "<%= @search %>"</h2>
+    <h2 class="text-center">Showing <%= @gym_count %> <%= "result".pluralize(@gym_count) %> for "<%= @search %>"</h2>
     <div class="text-center">
       <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
     </div>
