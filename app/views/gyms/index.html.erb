@@ -1,8 +1,11 @@
 <section>
   <div class="container">
     <h2 class="text-center">Showing all results for "<%= @search %>"</h2>
-
-    <table data-toggle="table" data-pagination="true" data-page-list="[5, 10, 20, 50, 100]" data-sort-name="name" data-sort-order="asc">
+    <div class="text-center">
+      <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
+    </div>
+    <br>
+    <table data-toggle="table" data-sort-name="name" data-sort-order="asc">
       <thead>
         <tr>
           <th data-field="name" data-align="center" data-sortable="true">Name</th>
@@ -25,6 +28,10 @@
         <% end %>
       </tbody>
     </table>
+    <br>
+    <div class="text-center">
+      <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </section>
 

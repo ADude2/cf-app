@@ -25,5 +25,6 @@ class Gym < ActiveRecord::Base
                   :tsearch => 
                     {tsvector_column: "tsv", 
                       :dictionary => "english"}
-                }
+                },
+                :order_within_rank => "gyms.name ASC"
 end
