@@ -32,3 +32,18 @@
   display: flex;
   justify-content: center;
 }
+
+.inline-block {
+  display: inline-block;
+}
+
+.pagination {
+  @media (max-width: 480px) {
+    li {
+      display: none;
+      &.active,&.prev,&.next {
+        display: inline;
+      }
+    }
+  }
+}

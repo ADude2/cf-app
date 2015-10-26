@@ -1,11 +1,11 @@
 <section>
   <div class="container">
-    <h2 class="text-center">Showing all results for "<%= @search %>"</h2>
+    <h2 class="text-center">Showing <%= @gyms.count %> results for "<%= @search %>"</h2>
     <div class="text-center">
       <%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
     </div>
     <br>
-    <table data-toggle="table" data-sort-name="name" data-sort-order="asc">
+    <table data-toggle="table" data-mobile-responsive="true" data-sort-name="name" data-sort-order="asc">
       <thead>
         <tr>
           <th data-field="name" data-align="center" data-sortable="true">Name</th>
@@ -23,7 +23,7 @@
             <td><%= gym.city %></td>
             <td><%= gym.state %></td>
             <td><%= gym.country %></td>
-            <td><div class="average_<%= gym.id %>"></div>(<%= gym_rated(gym) %>)</td>
+            <td><div class="inline-block"><div class="average_<%= gym.id %>"></div>(<%= gym_rated(gym) %>)</div></td>
           </tr>
         <% end %>
       </tbody>
