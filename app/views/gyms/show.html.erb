@@ -7,9 +7,9 @@
 <hr class="nomargin">
 
 <div class="container margin-top30 margin-bottom30">
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-5 col-lg-offset-2 col-md-offset-2 col-sm-offset-1 form-group centered">
-      <div id="map-canvas" style="width: 300px; height: 230px;"></div>
+  
+    <div class="col-lg-4 col-md-4 col-sm-5 col-lg-offset-2 col-md-offset-2 col-sm-offset-1 text-center form-group">
+      <div id="map-canvas" style="width: 100%; height: 230px;"></div>
     </div>
 
     <div class="col-lg-4 col-md-4 col-sm-5 form-group text-center">
@@ -24,7 +24,7 @@
       <br><br>
       <strong>Overall Rating</strong>: <%= @gym.average_rating.nil? ? "No Reviews Yet" : "#{@gym.average_rating} on 5 based on #{@review_count} #{ "review".pluralize(@review_count)}." %>
     </div>
-  </div>
+  
 </div>
 <hr class="nomargin">
 <div class="callout text-center nomargin">
