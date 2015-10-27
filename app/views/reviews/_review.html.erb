@@ -1,7 +1,7 @@
 <%= content_tag :div, class: 'media', id: "review-#{review.id}" do %>
   <div class="container margin-bottom20">
     <div class="row">
-      <div class="col-md-4 col-md-offset-2 col-xs-7 form-group pull-left">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-7 col-lg-offset-2 col-md-offset-2 col-sm-offset-1 form-group pull-left">
         <small>
           <%= link_to review.user.user_name, user_path(review.user) %> on <%= review.created_at.strftime("%b %d, %Y") %>
           <br>
@@ -13,7 +13,7 @@
           <%= review.content %>
         </p>
       </div>
-      <div class="col-md-4 col-xs-5 form-group pull-right">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5 form-group pull-right">
         Coaching: <div class="coaching_<%= review.id %>"></div>
         Equipment: <div class="equipment_<%= review.id %>"></div>
         Pricing: <div class="pricing_<%= review.id %>"></div>

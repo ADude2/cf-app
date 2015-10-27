@@ -6,7 +6,7 @@ class GymsController < ApplicationController
       @gym_count = @gyms.count
     else
       flash[:alert] = "Please specify a search term"
-      redirect_to root_path
+      redirect_to :back
     end
   end
 

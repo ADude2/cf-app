@@ -10,6 +10,7 @@
         <div class="panel-body">
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
             <%= f.error_notification %>
+              <%= f.input :user_name, required: true, autofocus: true, label: false, placeholder: '&#xf007;  User Name'.html_safe %>
               <%= f.input :email, required: true, label: false, placeholder: '&#xf0e0;  Email'.html_safe %>
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <p>

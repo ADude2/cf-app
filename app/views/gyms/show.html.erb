@@ -6,13 +6,13 @@
 </div>  
 <hr class="nomargin">
 
-<div class="container padding30">
+<div class="container margin-top30 margin-bottom30">
   <div class="row">
-    <div class="spaced col-md-4 col-md-offset-2 form-group">
+    <div class="col-lg-4 col-md-4 col-sm-5 col-lg-offset-2 col-md-offset-2 col-sm-offset-1 form-group centered">
       <div id="map-canvas" style="width: 300px; height: 230px;"></div>
     </div>
 
-    <div class="spaced col-md-4 form-group text-center">
+    <div class="col-lg-4 col-md-4 col-sm-5 form-group text-center">
       <ul class="list-unstyled">
         <li><strong>Website</strong>: <%= @gym.website == "f" ? "N/A" : link_to(@gym.website, @gym.website) %></li>
         <li><strong>Address</strong>: <%= @gym.address %></li>
